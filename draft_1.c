@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 int main(void) {
-  char name[] = "abcdefghijklmnopqrstuvwxyz";
+  char n[] = "abcdefghijklmnopqrstuvwxyz";
 
-  printf("%c", *name+1);     // output is a word of some sort
-  printf("%c", *(name));   
-  printf("%c\n", *(name+12));   
+  printf("%c", *n+1);     // output is a word of some sort
+  printf("%c", *(n));   
+  printf("%c\n", *(n+12));   
 
-  char *namePtr;
+  char *nP;
 
-  namePtr = name+6;
-  printf("%c", *namePtr+1);     // shifted by 6
-  printf("%c", *(namePtr));   
-  printf("%c\n", *(namePtr+12));   
+  nP = n+6;
+  printf("%c", *nP+1);     // shifted by 6
+  printf("%c", *(nP));   
+  printf("%c\n", *(nP+12));   
 }
