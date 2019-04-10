@@ -1,16 +1,22 @@
 #include <stdio.h>
+void encryptSentence();
 
-int main(void) {
-  char n[] = "abcdefghijklmnopqrstuvwxyz";
+int main()
+{
+    printf("Enter a sentence: ");
+    encryptSentence();
 
-  printf("%c", *n+1);     // output is a word of some sort
-  printf("%c", *(n));   
-  printf("%c\n", *(n+12));   
-
-  char *nP;
-
-  nP = n+6;
-  printf("%c", *nP+1);     // shifted by 6
-  printf("%c", *(nP));   
-  printf("%c\n", *(nP+12));   
+    return 0;
 }
+
+void encryptSentence()
+{
+    char c;
+    scanf("%c", &c);
+
+    if( c != '\n')
+    {
+        encryptSentence();
+        printf("%c",c);
+    }
+}  // function to reverse a sentence
