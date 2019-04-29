@@ -1,38 +1,41 @@
 #include <stdio.h>
-
 int main()
 {
    int i, x;
-   char str[26]; 
+   unsigned char str[260]; 
 
-   printf("\nPlease enter a string:\t");
-   gets(str);
+   printf("\nEnter a word:\t");
+   gets(str); // copying the word to store it then to use it for encryption or decryption 
 
-   printf("\nPlease choose following options:\n");
-   printf("1 = Encrypt the string.\n");
-   printf("2 = Decrypt the string.\n");
+   printf("Please choose following options:\n");
+   printf("1 = Encrypt the word.\n");
+   printf("2 = Decrypt the word.\n");
    printf("Choice:\t");
    scanf("%d", &x);
 
-   //can i remove the switch statement to just encrypt and decrypt in one go?
+   
    switch(x)
    {
    case 1:
-      for(i = 0; (i < 26 && str[i] != '\0'); i++)
-        str[i] = str[i] + 9; //shifted by 9
+      if(i<90 || i>65) {
+      for(i = 0; (i < 26 && str[i] != '\0'); i++)// to keep it in the range for capitals
+        str[i] = (str[i] + 1 -65) %26 + 65 ; //shifted by 1
 
-      printf("\nEncrypted string: %s\n", str);
+      printf("\nEncrypted word: %s\n", str);
       break;
+      }
 
    case 2:
-      for(i = 0; (i < 26 && str[i] != '\0'); i++)
-        str[i] = str[i] - 9; //shifted back to original by 9
+      if(i<90 || i>65) {
+      for(i = 0; (i < 26 && str[i] != '\0'); i++)// to keep it in the range for capitals
+        str[i] = (str[i] - 1 + 65) %26 + 65; //shifted back to original by 1
 
-      printf("\nDecrypted string: %s\n", str);
+      printf("\nDecrypted word: %s\n", str);
       break;
+      }
 
    default:
-      printf("\nError\n");
+      printf("\tError, Try Again");
    }
    return 0;
 }
